@@ -22,6 +22,7 @@ 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
 
 ## Verificando se o Container foi iniciado sem erros (usando o podman)
 	podman ps --format "{{.ID}} {{.Image}} {{.Names}}"
+	podman ps --format="{{.ID}} {{.Names}} {{.Ports}}"
 	podman ps -a
 
 ## Acesse a área restrita do contêiner, O comando inicia um shell Bash, em execução como o usuário mysql, dentro do contêiner MySQL
@@ -29,3 +30,29 @@ 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
 	
 ## Verificando log da execução/inicialização do container 
 	podman logs mysql-db
+
+## 1. Quais comandos exibem imagens mysql disponíveis para download em registry.redhat.io?
+	podman search registry.redhat.io/mysql
+	podman search mysql
+
+## 2. Qual comando é usado para listar todas as tags de imagem disponíveis para a imagem de contêiner httpd?
+	podman search --list-tags httpd
+
+## 3. Quais os dois comandos que extraem a imagem httpd com o marcador 2.4? (Escolha duas opções.)
+	podman pull httpd:2.4
+	podman pull registry.redhat.io/httpd:2.4
+
+## 4. Ao executar os comandos a seguir, quais imagens de contêiner serão baixadas?
+	[user@host ~]$ podman pull registry.redhat.io/httpd:2.4
+	[user@host ~]$ podman pull quay.io/mysql:8.0
+
+		registry.redhat.io/httpd:2.4, nenhuma imagem será baixada para o mysql.
+
+## Use o comando podman diff para examinar as diferenças no contêiner entre a imagem e a nova camada criada pelo contêiner.
+	podman diff official-httpd
+
+## Pare o contêiner official-httpd.
+	podman stop official-httpd
+
+## Liste as imagens de contêiner disponíveis.
+	podman images
