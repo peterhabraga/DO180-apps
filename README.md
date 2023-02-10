@@ -1,6 +1,10 @@
 # DO180-apps
 DO180 Repository for Sample Applications
 
+## configurações globais
+	git config --global user.name "Andre Baltieri"
+	git config --global user.email "meuemail@github.com"
+
 ## Token_Curso_DO180-RedHat_GITHUB
 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
 
