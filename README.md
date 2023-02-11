@@ -58,6 +58,32 @@ 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
 ## comando para exibir os metadados de imagem.
 	podman inspect
 
+## 1. Quais comandos exibem imagens mysql disponíveis para download em registry.redhat.io?
+	podman search registry.redhat.io/mysql
+	podman search mysql
+
+## 2. Qual comando é usado para listar todas as tags de imagem disponíveis para a imagem de contêiner httpd?
+	podman search --list-tags httpd
+
+## 3. Quais os dois comandos que extraem a imagem httpd com o marcador 2.4? (Escolha duas opções.)
+	podman pull httpd:2.4
+	podman pull registry.redhat.io/httpd:2.4
+
+## 4. Ao executar os comandos a seguir, quais imagens de contêiner serão baixadas?
+	[user@host ~]$ podman pull registry.redhat.io/httpd:2.4
+	[user@host ~]$ podman pull quay.io/mysql:8.0
+
+		registry.redhat.io/httpd:2.4, nenhuma imagem será baixada para o mysql.
+
+## Use o comando podman diff para examinar as diferenças no contêiner entre a imagem e a nova camada criada pelo contêiner.
+	podman diff official-httpd
+
+## Pare o contêiner official-httpd.
+	podman stop official-httpd
+
+## Liste as imagens de contêiner disponíveis.
+	podman images
+
 ## Perguntas e Respostas
 
 	# 1. Quais afirmações estão corretas em relação à arquitetura do Kubernetes? (Escolha duas opções.)
@@ -149,29 +175,3 @@ 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
 
 	## Use o comando para criar os recursos do aplicativo
 		oc create -f <NAME>.yml
-
-## 1. Quais comandos exibem imagens mysql disponíveis para download em registry.redhat.io?
-	podman search registry.redhat.io/mysql
-	podman search mysql
-
-## 2. Qual comando é usado para listar todas as tags de imagem disponíveis para a imagem de contêiner httpd?
-	podman search --list-tags httpd
-
-## 3. Quais os dois comandos que extraem a imagem httpd com o marcador 2.4? (Escolha duas opções.)
-	podman pull httpd:2.4
-	podman pull registry.redhat.io/httpd:2.4
-
-## 4. Ao executar os comandos a seguir, quais imagens de contêiner serão baixadas?
-	[user@host ~]$ podman pull registry.redhat.io/httpd:2.4
-	[user@host ~]$ podman pull quay.io/mysql:8.0
-
-		registry.redhat.io/httpd:2.4, nenhuma imagem será baixada para o mysql.
-
-## Use o comando podman diff para examinar as diferenças no contêiner entre a imagem e a nova camada criada pelo contêiner.
-	podman diff official-httpd
-
-## Pare o contêiner official-httpd.
-	podman stop official-httpd
-
-## Liste as imagens de contêiner disponíveis.
-	podman images
